@@ -90,6 +90,9 @@
       text-align: center;
       font-size: 16px;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     
@@ -102,7 +105,7 @@
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5);
       background-color: transparent;
-      pointer-events: none;
+      pointer-events: auto;  /* Ensures interaction is possible */
       transform: translateY(0);
       transition: transform 0.3s ease-out;
     }
