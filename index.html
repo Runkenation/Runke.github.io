@@ -94,13 +94,13 @@
     .footer {
       position: fixed;
       bottom: 0;
+      left: 0;
       width: 100%;
       text-align: center;
       padding: 10px 0;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5);
       background-color: transparent;
-      pointer-events: auto;
       z-index: 10;
     }
 
@@ -117,9 +117,19 @@
     .footer a:hover {
       color: #ccc;
     }
+
+    .subtext {
+      position: fixed;
+      bottom: 5px;
+      right: 10px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.3);
+      z-index: 11;
+      font-style: italic;
+    }
   </style>
 
-<script type='text/javascript' src='https://www.runkenation.com/yXYB1Ww_JVCvocPQTY9lC0uDBcKesBxJqJDbderI7tE7sO5lxUO23rLGSem9mlRxFY7PZWyqMdwzNGE1QAoHJw=='></script>
+  <script type='text/javascript' src='https://www.runkenation.com/yXYB1Ww_JVCvocPQTY9lC0uDBcKesBxJqJDbderI7tE7sO5lxUO23rLGSem9mlRxFY7PZWyqMdwzNGE1QAoHJw=='></script>
 </head>
 
 <body>
@@ -155,18 +165,13 @@
     <p>Phasellus nec ex nec justo fermentum vulputate. Aenean posuere, sapien nec dapibus efficitur, tellus neque suscipit purus, non consequat tortor nulla nec lacus.</p>
   </div>
 
-  <div class="footer" id="footer">
+  <div class="footer">
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
   </div>
 
-  <script>
-    window.addEventListener('scroll', function() {
-      const footer = document.getElementById('footer');
-      const scrollPosition = window.scrollY;
-      const lagAmount = scrollPosition * 0.5;
-      footer.style.transform = `translateY(${lagAmount}px)`;
-    });
-  </script>
+  <div class="subtext">
+    Made by Lucas himself, bet your band doesn't have a cool custom website, poser...
+  </div>
 
 </body>
 </html>
