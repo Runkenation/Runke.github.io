@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Runke</title>
+  <title>Psychedelic Band Page</title>
 
-  <!-- shitty boring font we have to use to appease to corporate overlords dane... sorry its like a sports brand. -->
+  <!-- Oswald font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
   <style>
@@ -14,21 +14,18 @@
       margin: 0;
       background-color: #000;
       color: #ccc;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Oswald', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center; /* Ensures content is vertically centered */
       padding-bottom: 60px;
-      text-align: center; /* Centers all text */
     }
 
     
     .logo {
       position: absolute;
       top: 20px;
-      left: 50%;
-      transform: translateX(-50%); /* Centers the logo */
+      left: 20px;
       height: 100px;
     }
 
@@ -93,8 +90,6 @@
       text-align: center;
       font-size: 16px;
       line-height: 1.6;
-      margin-left: auto; 
-      margin-right: auto; /* Ensures it is centered */
     }
 
     
@@ -102,26 +97,14 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      text-align: center;  /* Centers the text in the footer */
+      text-align: center;
       padding: 10px 0;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5);
       background-color: transparent;
-      pointer-events: auto;  /* Ensures interaction is possible */
-    }
-
-    .footer p {
-      margin: 0;
-    }
-
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .footer a:hover {
-      color: #ccc;
+      pointer-events: none;
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
     }
 
   </style>
@@ -129,31 +112,32 @@
 <body>
 
   
-  <img src="download (1).png" alt="Logo" class="logo" />
+  <img src="your-logo.png" alt="Logo" class="logo" />
 
   
   <div class="intro">
-    <h1>Who is "RUNKE"?</h1>
-    <p>We, Runke, are an alternative rock band (from the hick town of Cullman Alabama); from our root's in musical theory and the pure intention to have a good time, we are proud to play loud and welcome you to our family. Welcome! PLACEHOLDER TEXT DANE I KNOW THIS IS CRINGE </p>
+    <h1>Who are we?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae turpis nulla. Nullam at gravida sem.</p>
   </div>
 
   
   <div class="gallery">
     <div class="gallery-item">
-      <img src="https://via.placeholder.com/150" alt="Guitarist" />
-      <p>Dane</p>
+      <img src="https://via.placeholder.com/150" alt="Member 1" />
+      <p>Member 1</p>
     </div>
     <div class="gallery-item">
-      <img src="https://via.placeholder.com/150" alt="Rhythm Guitarist" />
-      <p>Deytan</p>
+      <img src="https://via.placeholder.com/150" alt="Member 2" />
+      <p>Member 2</p>
     </div>
     <div class="gallery-item">
-      <img src="https://via.placeholder.com/150" alt="Bassist" />
-      <p>Lucas</p>
+      <img src="https://via.placeholder.com/150" alt="Member 3" />
+      <p>Member 3</p>
     </div>
     <div class="gallery-item">
-      <img src="https://via.placeholder.com/150" alt="Percussionist/Drummer" />
-      <p>Dylan</p>
+      <img src="https://via.placeholder.com/150" alt="Member 4" />
+      <p>Member 4</p>
+    </div>
   </div>
 
   
@@ -164,7 +148,7 @@
 
   
   <div class="footer" id="footer">
-    <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
+    Lorem ipsum dolor sit amet · email@example.com · +1 (234) 567-890
   </div>
 
   
@@ -172,7 +156,7 @@
     window.addEventListener('scroll', function() {
       const footer = document.getElementById('footer');
       const scrollPosition = window.scrollY;
-      const lagAmount = scrollPosition * 0.2; // Adjust this for more/less lag
+      const lagAmount = scrollPosition * 0.5; // Adjust this for more/less lag
       footer.style.transform = `translateY(${lagAmount}px)`;
     });
   </script>
