@@ -18,20 +18,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 60px;
+      padding-bottom: 80px; /* More space for footer */
+      text-align: center;
     }
 
     
     .logo {
       position: absolute;
       top: 20px;
-      left: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       height: 100px;
     }
 
     
     .intro {
-      margin-top: 140px;
+      margin-top: 120px; /* Raised content */
       text-align: center;
     }
 
@@ -90,6 +92,8 @@
       text-align: center;
       font-size: 16px;
       line-height: 1.6;
+      margin-left: auto; 
+      margin-right: auto;
     }
 
     
@@ -102,9 +106,21 @@
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5);
       background-color: transparent;
-      pointer-events: none;
-      transform: translateY(0);
-      transition: transform 0.3s ease-out;
+      pointer-events: auto; /* Make sure footer link is clickable */
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      color: #ccc;
     }
 
   </style>
@@ -148,7 +164,7 @@
 
   
   <div class="footer" id="footer">
-   <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
+    <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
   </div>
 
   
