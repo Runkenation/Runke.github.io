@@ -18,26 +18,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 80px; /* More space for footer */
+      padding-bottom: 100px; /* Space at the bottom for the footer */
       text-align: center;
     }
 
-    
+    /* Logo aligned to the left */
     .logo {
       position: absolute;
       top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 20px;
       height: 100px;
     }
 
-    
     .intro {
       margin-top: 120px; /* Raised content */
       text-align: center;
     }
 
-    
     .intro h1 {
       font-size: 32px;
       margin: 0;
@@ -45,7 +42,6 @@
       color: #fff;
     }
 
-    
     .intro p {
       font-size: 16px;
       color: #aaa;
@@ -53,7 +49,6 @@
       margin: 10px auto 30px;
     }
 
-    
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -61,12 +56,10 @@
       justify-items: center;
     }
 
-    
     .gallery-item {
       text-align: center;
     }
 
-    
     .gallery-item img {
       width: 150px;
       height: 150px;
@@ -78,25 +71,21 @@
       margin-bottom: 10px;
     }
 
-    
     .gallery-item p {
       font-size: 14px;
       color: #aaa;
       margin: 0;
     }
 
-    
     .description {
       margin-top: 60px;
       max-width: 600px;
       text-align: center;
       font-size: 16px;
       line-height: 1.6;
-      margin-left: auto; 
-      margin-right: auto;
     }
 
-    
+    /* Sticky Footer */
     .footer {
       position: fixed;
       bottom: 0;
@@ -106,7 +95,8 @@
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5);
       background-color: transparent;
-      pointer-events: auto; /* Make sure footer link is clickable */
+      pointer-events: auto;
+      z-index: 10; /* Make sure it stays above content */
     }
 
     .footer p {
@@ -123,31 +113,18 @@
       color: #ccc;
     }
 
-    .footer-duplicate {
-      position: relative;
-      bottom: 60px; /* Create space between footers */
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
-      background-color: transparent;
-    }
-
   </style>
 </head>
 <body>
 
-  
+  <!-- Logo aligned to the left -->
   <img src="download (1).png" alt="Runke" class="logo" />
 
-  
   <div class="intro">
     <h1>Who is "Runke"?</h1>
     <p>We are an alternative rock band, based in Cullman, Alabama. From our early childhood we have all had a strong friendship, as well as a deep connection to musical theory.</p>
   </div>
 
-  
   <div class="gallery">
     <div class="gallery-item">
       <img src="https://via.placeholder.com/150" alt="dane" />
@@ -167,23 +144,16 @@
     </div>
   </div>
 
-  
   <div class="description">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl in bibendum blandit, sapien dolor placerat orci, sit amet varius libero nisi ut nulla.</p>
     <p>Phasellus nec ex nec justo fermentum vulputate. Aenean posuere, sapien nec dapibus efficitur, tellus neque suscipit purus, non consequat tortor nulla nec lacus.</p>
   </div>
 
-  
+  <!-- Sticky footer that moves with the scroll -->
   <div class="footer" id="footer">
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
   </div>
 
-  <!-- Duplicated Footer -->
-  <div class="footer-duplicate">
-    <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
-  </div>
-
-  
   <script>
     window.addEventListener('scroll', function() {
       const footer = document.getElementById('footer');
