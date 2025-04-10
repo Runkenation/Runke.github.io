@@ -209,21 +209,11 @@
   </div>
 
   <script>
-    // Subtext disappear logic
+    // Subtext disappear after 5 seconds logic
     const subtext = document.querySelector('.subtext');
-    let subtextTimeout;
-
-    function showSubtext() {
-      subtext.style.opacity = '1';
-      clearTimeout(subtextTimeout);
-      subtextTimeout = setTimeout(() => {
-        subtext.style.opacity = '0';
-      }, 5000);
-    }
-
-    // Init on load
-    showSubtext();
-    window.addEventListener('scroll', showSubtext);
+    setTimeout(() => {
+      subtext.style.opacity = '0'; // Hide the subtext after 5 seconds
+    }, 5000);
   </script>
 
 </body>
