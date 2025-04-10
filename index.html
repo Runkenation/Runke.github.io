@@ -102,14 +102,33 @@
       color: rgba(255, 255, 255, 0.5);
       background-color: transparent;
       z-index: 10;
+      pointer-events: none;
+    }
+
+    .footer-trace {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .footer-trace span {
+      display: block;
+      opacity: 0.1;
+      color: white;
+      pointer-events: none;
+      transform: translateY(0);
     }
 
     .footer p {
       margin: 0;
+      position: relative;
+      pointer-events: auto;
     }
 
     .footer a {
-      color: #fff;
+      color: #00f; /* bright blue */
       text-decoration: none;
       font-weight: bold;
     }
@@ -126,6 +145,8 @@
       color: rgba(255, 255, 255, 0.3);
       z-index: 11;
       font-style: italic;
+      transition: opacity 0.4s ease-out;
+      opacity: 1;
     }
   </style>
 
@@ -165,13 +186,49 @@
     <p>Phasellus nec ex nec justo fermentum vulputate. Aenean posuere, sapien nec dapibus efficitur, tellus neque suscipit purus, non consequat tortor nulla nec lacus.</p>
   </div>
 
-  <div class="footer">
+  <div class="footer" id="footer">
+    <div class="footer-trace" id="footerTrace"></div>
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
   </div>
 
   <div class="subtext">
     Made by Lucas himself, bet your band doesn't have a cool custom website, poser...
   </div>
+
+  <script>
+    const footer = document.getElementById('footer');
+    const traceContainer = document.getElementById('footerTrace');
+    let traceTimeout;
+
+    // Tracer effect
+    window.addEventListener('scroll', () => {
+      const clone = footer.cloneNode(true);
+      clone.classList.remove('footer');
+      clone.classList.add('footer-trace');
+      clone.innerHTML = `<span>${footer.textContent}</span>`;
+      traceContainer.appendChild(clone);
+
+      setTimeout(() => {
+        traceContainer.removeChild(clone);
+      }, 500);
+    });
+
+    // Subtext disappear logic
+    const subtext = document.querySelector('.subtext');
+    let subtextTimeout;
+
+    function showSubtext() {
+      subtext.style.opacity = '1';
+      clearTimeout(subtextTimeout);
+      subtextTimeout = setTimeout(() => {
+        subtext.style.opacity = '0';
+      }, 5000);
+    }
+
+    // Init on load
+    showSubtext();
+    window.addEventListener('scroll', showSubtext);
+  </script>
 
 </body>
 </html>
