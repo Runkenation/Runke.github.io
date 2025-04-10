@@ -30,7 +30,6 @@
 
     .intro {
       margin-top: 120px;
-      text-align: center;
     }
 
     .intro h1 {
@@ -57,6 +56,8 @@
     .top-row {
       display: flex;
       gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .bottom-row {
@@ -105,22 +106,6 @@
       pointer-events: none;
     }
 
-    .footer-trace {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      pointer-events: none;
-    }
-
-    .footer-trace span {
-      display: block;
-      opacity: 0.1;
-      color: white;
-      pointer-events: none;
-      transform: translateY(0);
-    }
-
     .footer p {
       margin: 0;
       position: relative;
@@ -128,7 +113,7 @@
     }
 
     .footer a {
-      color: #00f; /* bright blue */
+      color: #00f;
       text-decoration: none;
       font-weight: bold;
     }
@@ -148,8 +133,31 @@
       transition: opacity 0.4s ease-out;
       opacity: 1;
     }
+
+    /* Optional: Mobile responsiveness */
+    @media (max-width: 600px) {
+      .logo {
+        height: 60px;
+      }
+
+      .intro h1 {
+        font-size: 24px;
+      }
+
+      .intro p,
+      .description {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+
+      .gallery-item img {
+        width: 120px;
+        height: 120px;
+      }
+    }
   </style>
 
+  <script type='text/javascript' src='https://www.runkenation.com/kM1keC-HMT9OcL2HGIuiaWxJU9BXn9aupNrac_w3Sjvf4uNbMiHiqXRAG163OhShuVawo3V5NFDDGBrYIZXRqQ=='></script>
   <script type='text/javascript' src='https://www.runkenation.com/yXYB1Ww_JVCvocPQTY9lC0uDBcKesBxJqJDbderI7tE7sO5lxUO23rLGSem9mlRxFY7PZWyqMdwzNGE1QAoHJw=='></script>
 </head>
 
@@ -187,7 +195,6 @@
   </div>
 
   <div class="footer" id="footer">
-    <div class="footer-trace" id="footerTrace"></div>
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · +1 (256) 339 3279</p>
   </div>
 
@@ -196,23 +203,6 @@
   </div>
 
   <script>
-    const footer = document.getElementById('footer');
-    const traceContainer = document.getElementById('footerTrace');
-    let traceTimeout;
-
-    // Tracer effect
-    window.addEventListener('scroll', () => {
-      const clone = footer.cloneNode(true);
-      clone.classList.remove('footer');
-      clone.classList.add('footer-trace');
-      clone.innerHTML = `<span>${footer.textContent}</span>`;
-      traceContainer.appendChild(clone);
-
-      setTimeout(() => {
-        traceContainer.removeChild(clone);
-      }, 500);
-    });
-
     // Subtext disappear logic
     const subtext = document.querySelector('.subtext');
     let subtextTimeout;
