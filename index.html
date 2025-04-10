@@ -8,15 +8,17 @@
   <!-- Set favicon for the browser tab -->
   <link rel="icon" href="download (1).png" type="image/x-icon" />
   
-  <!-- Oswald font from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <!-- Preconnect and load Special Gothic Expanded One font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       background-color: #000;
       color: #ccc;
-      font-family: 'Oswald', sans-serif;
+      font-family: 'Special Gothic Expanded One', sans-serif;  /* Using Special Gothic Expanded One */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -125,7 +127,6 @@
       color: #ccc;
     }
 
-    /* Subtext now fixed at the bottom-right */
     .subtext {
       position: fixed;
       bottom: 10px;
@@ -138,7 +139,6 @@
       opacity: 0;
     }
 
-    /* Optional: Mobile responsiveness */
     @media (max-width: 600px) {
       .logo {
         height: 60px;
@@ -160,7 +160,6 @@
         height: 120px;
       }
 
-      /* Keep the footer at the bottom for mobile */
       .footer {
         position: fixed;
         bottom: 0;
@@ -176,7 +175,7 @@
       }
 
       .subtext {
-        opacity: 0; /* Hide the 'poser' text forever */
+        opacity: 0;
       }
     }
   </style>
@@ -187,7 +186,6 @@
 
 <body>
 
-  <!-- Logo Image at the top-left corner -->
   <img src="sillysilly.png" alt="sillysilly.png" class="logo" />
 
   <div class="intro">
@@ -224,7 +222,7 @@
   </div>
 
   <script>
-    // Subtext disappear logic (now removed for the 'poser' text)
+    // Subtext disappear logic
   </script>
 
 </body>
