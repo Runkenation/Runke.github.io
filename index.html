@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Runke</title>
 
+  <!-- Add Favicon -->
+  <link rel="icon" href="download (1).png" type="image/x-icon" />
+
   <!-- Oswald font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
@@ -122,10 +125,13 @@
       color: #ccc;
     }
 
+    /* Subtext now placed at the bottom, but not fixed to the screen */
     .subtext {
-      position: fixed;
-      bottom: 5px;
-      right: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
       font-size: 10px;
       color: rgba(255, 255, 255, 0.3);
       z-index: 11;
