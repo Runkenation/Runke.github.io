@@ -139,7 +139,7 @@
     }
 
     /* Optional: Mobile responsiveness */
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .logo {
         height: 60px;
         left: 10px;
@@ -160,9 +160,10 @@
         height: 120px;
       }
 
+      /* Keep the footer at the bottom for mobile */
       .footer {
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
         text-align: center;
