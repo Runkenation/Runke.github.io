@@ -142,11 +142,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 140px;
+      max-width: 180px;
     }
 
     .gallery img {
-      width: 140px;
+      width: 180px; /* Updated width for bigger images */
       height: auto;
       border-radius: 12px;
       object-fit: cover;
@@ -155,7 +155,7 @@
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.1); /* Slightly bigger on hover */
       opacity: 0.9;
     }
 
@@ -366,34 +366,3 @@
     const disclaimerButton = document.getElementById('disclaimerButton');
 
     function updateHeroImage() {
-      if (window.innerWidth <= 480) {
-        heroImage.src = '2222ba.jpg'; 
-      } else {
-        heroImage.src = 'backtruck.jpeg';
-      }
-    }
-
-    window.addEventListener('resize', updateHeroImage);
-    window.addEventListener('load', updateHeroImage);
-
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth <= 480) return;
-
-      const scrollY = window.scrollY;
-      const maxBlur = 6;
-      const blurAmount = Math.min(scrollY / 60, maxBlur);
-      const scaleAmount = 1 + scrollY / 5000;
-      const opacityAmount = Math.min(scrollY / 300, 1);
-
-      blanket.style.opacity = opacityAmount;
-      blanket.style.backdropFilter = `blur(${blurAmount}px)`;
-      heroImage.style.filter = `blur(${1 + blurAmount}px)`;
-      heroImage.style.transform = `scale(${scaleAmount})`;
-    });
-
-    disclaimerButton.addEventListener('click', () => {
-      disclaimerModal.style.display = 'none';
-    });
-  </script>
-</body>
-</html>
