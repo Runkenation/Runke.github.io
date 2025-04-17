@@ -126,7 +126,7 @@
       font-size: 25px;
       color: white;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 0 20px;
     }
 
     .footer {
@@ -193,7 +193,7 @@
       }
 
       .black-box {
-        padding: 30px 20px;
+        padding: 30px 20px 80px;
         margin-top: 0;
         width: 100vw;
       }
@@ -207,10 +207,7 @@
 </head>
 
 <body>
-  <picture>
-    <source media="(max-width: 480px)" srcset="2222ba.jpeg">
-    <img src="backtruck.jpeg" alt="Hero" class="hero-image" id="heroImage" />
-  </picture>
+  <img src="backtruckgaze.JPG" alt="Hero" class="hero-image" id="heroImage" />
 
   <div class="hero-overlay">
     <div class="blanket" id="blanket"></div>
@@ -230,6 +227,7 @@
     <p>The group roles are as follows: Dane on guitar, Deytan on drums, and Lucas on bass.</p>
     <p>We love music, and we hope you'll join our little tribe and enjoy music with us.</p>
     <p>We love you dude, chill...</p>
+    
   </div>
 
   <div class="footer">
@@ -237,8 +235,19 @@
   </div>
 
   <script>
-    const blanket = document.getElementById('blanket');
     const heroImage = document.getElementById('heroImage');
+    const blanket = document.getElementById('blanket');
+
+    function updateHeroImage() {
+      if (window.innerWidth <= 480) {
+        heroImage.src = '2222ba.jpeg';
+      } else {
+        heroImage.src = 'backtruckgaze.JPG';
+      }
+    }
+
+    window.addEventListener('resize', updateHeroImage);
+    window.addEventListener('load', updateHeroImage);
 
     window.addEventListener('scroll', () => {
       if (window.innerWidth <= 480) return;
