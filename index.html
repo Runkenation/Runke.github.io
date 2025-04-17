@@ -201,15 +201,16 @@
       }
     }
 
-    /* Added adjustments for devices under 480px */
+    /* Final changes for phones under 480px */
     @media (max-width: 480px) {
       .hero-image {
         width: 100vw;
-        object-fit: cover;
+        height: 100vh;
+        object-fit: contain;
       }
 
       .intro {
-        padding: 22.5px; /* 25% smaller than 30px */
+        padding: 22.5px;
       }
 
       .intro h1 {
@@ -221,16 +222,16 @@
       }
 
       .content {
-        font-size: 16.5px; /* ~25% smaller */
-        padding: 22.5px;    /* 25% smaller */
+        font-size: 16.5px;
+        padding: 22.5px;
       }
 
       .black-box {
-        padding: 45px;      /* 25% smaller */
+        padding: 45px;
       }
 
       .black-box p {
-        font-size: 18.75px; /* 25% smaller */
+        font-size: 18.75px;
       }
     }
   </style>
