@@ -134,23 +134,38 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      padding: 20px 0;
+      gap: 40px;
+      padding: 40px 0;
     }
+
     .gallery-row {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 40px;
     }
+
     .gallery-row.center {
       justify-content: center;
     }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .gallery-img {
-      width: 120px;
-      height: 120px;
+      width: 144px; /* 120px + 20% */
+      height: 144px;
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: white;
+      font-size: 16px;
     }
 
     .footer {
@@ -177,7 +192,6 @@
       color: #ccc;
     }
 
-    /* New modal style for the disclaimer */
     .disclaimer-modal {
       position: fixed;
       top: 0;
@@ -309,24 +323,30 @@
 
   <div class="black-box">
     <p>
-      Runke is, simply put, a project by and for people who love music.<br>
-      <br>
-      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br>
-      <br>
-      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br>
-      <br>
+      Runke is, simply put, a project by and for people who love music.<br><br>
+      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br><br>
+      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br><br>
       We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
     </p>
-  </div>
 
-  <!-- Photo Gallery Section -->
-  <div class="gallery">
-    <div class="gallery-row">
-      <img src="Dane.JPG" alt="Dane" class="gallery-img">
-      <img src="Nick.JPG" alt="Nick" class="gallery-img">
-    </div>
-    <div class="gallery-row center">
-      <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+    <!-- Photo Gallery Section -->
+    <div class="gallery">
+      <div class="gallery-row">
+        <div class="image-container">
+          <img src="Dane.JPG" alt="Dane" class="gallery-img">
+          <p class="caption">Dane - Guitar</p>
+        </div>
+        <div class="image-container">
+          <img src="Nick.JPG" alt="Nick" class="gallery-img">
+          <p class="caption">Nick - Drums</p>
+        </div>
+      </div>
+      <div class="gallery-row center">
+        <div class="image-container">
+          <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+          <p class="caption">Lucas - Bass</p>
+        </div>
+      </div>
     </div>
   </div>
 
