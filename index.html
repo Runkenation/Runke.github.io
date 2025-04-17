@@ -1,24 +1,371 @@
-/* Gallery styles */
-.gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 0;
-}
-.gallery-row {
-  display: flex;
-  justify-content: space-evenly; /* Changed from center to space-evenly */
-  gap: 30px; /* Increased gap for more space between images */
-  width: 100%; /* Ensure the row takes full width */
-}
-.gallery-row.center {
-  justify-content: center;
-}
-.gallery-img {
-  width: 180px; /* Increased image size */
-  height: 180px; /* Increased image size */
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Runke</title>
+
+  <link rel="icon" href="sushi.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Special Gothic Expanded One', sans-serif;
+      background-color: #000;
+      color: #ccc;
+      overflow-x: hidden;
+      min-height: calc(100vh + 100px);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: top;
+      z-index: -2;
+      transition: transform 0.2s ease-out, filter 0.3s ease-out;
+      will-change: transform, filter;
+    }
+
+    .hero-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .blanket {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 60%);
+      backdrop-filter: blur(0px);
+      opacity: 0;
+      transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 100px;
+      z-index: 2;
+    }
+
+    .intro {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 600px;
+      backdrop-filter: blur(4px);
+    }
+
+    .intro h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .intro p {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .black-box {
+      background-color: black;
+      padding: 60px 20px;
+      width: 100vw;
+      text-align: center;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .black-box p {
+      font-size: 25px;
+      color: white;
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+
+    /* Gallery styles */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .gallery-row {
+      display: flex;
+      justify-content: space-evenly; /* Changed from center to space-evenly */
+      gap: 30px; /* Increased gap for more space between images */
+      width: 100%; /* Ensure the row takes full width */
+    }
+    .gallery-row.center {
+      justify-content: center;
+    }
+    .gallery-img {
+      width: 180px; /* Increased image size */
+      height: 180px; /* Increased image size */
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .caption {
+      color: #fff;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    /* Footer styles */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      padding: 5px 0;
+      background: #000;
+      color: rgba(255, 255, 255, 0.7);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .footer a {
+      color: #00f;
+      text-decoration: none;
+      font-weight: bold;
+      pointer-events: auto;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+    }
+
+    /* Mobile first: gallery above the text */
+    .mobile-only {
+      display: none;
+    }
+
+    .desktop-only {
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .mobile-only {
+        display: block;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .hero {
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 100px;
+      }
+
+      .hero-image {
+        position: static;
+        top: 0;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+      }
+
+      .logo {
+        display: none;
+      }
+
+      .intro {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding: 30px 20px;
+        background-color: black;
+        max-width: 100%;
+        text-align: center;
+        border-radius: 0;
+        width: 100vw;
+      }
+
+      .intro h1 {
+        font-size: 32px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .intro p {
+        font-size: 18px;
+        color: #f1f1f1;
+        font-weight: 500;
+      }
+
+      .black-box {
+        padding: 30px 20px 80px;
+        margin-top: 0;
+        width: 100vw;
+      }
+
+      .black-box p {
+        font-size: 16.5px;
+        line-height: 1.5;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img src="backtruck.jpeg" alt="Hero" class="hero-image" id="heroImage" />
+
+  <div class="hero-overlay">
+    <div class="blanket" id="blanket"></div>
+  </div>
+
+  <div class="hero">
+    <img src="sillysilly.png" alt="Runke Logo" class="logo" />
+    <div class="intro">
+      <h1>Who are we?</h1>
+      <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
+    </div>
+  </div>
+
+  <div class="black-box">
+    <div class="gallery mobile-only">
+      <div class="gallery-row">
+        <div class="image-container">
+          <img src="Dane.JPG" alt="Dane" class="gallery-img">
+          <p class="caption">Dane</p>
+        </div>
+        <div class="image-container">
+          <img src="Nick.JPG" alt="Nick" class="gallery-img">
+          <p class="caption">Nick</p>
+        </div>
+      </div>
+      <div class="gallery-row center">
+        <div class="image-container">
+          <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+          <p class="caption">Lucas</p>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      Runke is, simply put, a project by and for people who love music.<br><br>
+      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br><br>
+      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br><br>
+      We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
+    </p>
+    <br>
+    <br>
+    <!-- Gallery shown on desktop (after paragraph) -->
+    <div class="gallery desktop-only">
+      <div class="gallery-row">
+        <div class="image-container">
+          <img src="Dane.JPG" alt="Dane" class="gallery-img">
+          <p class="caption">Dane</p>
+        </div>
+        <div class="image-container">
+          <img src="Nick.JPG" alt="Nick" class="gallery-img">
+          <p class="caption">Nick</p>
+        </div>
+      </div>
+      <div class="gallery-row center">
+        <div class="image-container">
+          <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+          <p class="caption">Lucas</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · (256) 339 3279</p>
+  </div>
+
+  <script>
+    const heroImage = document.getElementById('heroImage');
+    const blanket = document.getElementById('blanket');
+
+    function updateHeroImage() {
+      if (window.innerWidth <= 480) {
+        heroImage.src = '2222ba.jpg'; 
+      } else {
+        heroImage.src = 'backtruck.jpeg';
+      }
+    }
+
+    window.addEventListener('resize', updateHeroImage);
+    window.addEventListener('load', updateHeroImage);
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 480) return;
+
+      const scrollY = window.scrollY;
+      const maxBlur = 6;
+      const blurAmount = Math.min(scrollY / 60, maxBlur);
+      const scaleAmount = 1 + scrollY / 5000;
+      const opacityAmount = Math.min(scrollY / 300, 1);
+
+      blanket.style.opacity = opacityAmount;
+      blanket.style.backdropFilter = `blur(${blurAmount}px)`;
+      heroImage.style.filter = `blur(${1 + blurAmount}px)`;
+      heroImage.style.transform = `scale(${scaleAmount})`;
+    });
+  </script>
+</body>
+</html>
