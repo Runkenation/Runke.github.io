@@ -285,11 +285,16 @@
         padding-top: 20px;
         width: 100vw;
         text-align: center;
-        margin-top: 20px; /* Add a margin to separate gallery from "Who are we?" section */
+        margin-top: 40px;
       }
 
       .disclaimer-modal {
         display: flex;
+      }
+
+      /* Ensure gallery appears below "Who are we" on mobile */
+      .black-box .gallery {
+        margin-top: 0;
       }
     }
   </style>
@@ -319,7 +324,7 @@
     </div>
   </div>
 
-  <!-- Gallery placed directly after the "Who are we?" section on small screens -->
+  <!-- Move Gallery under "Who are we" on mobile -->
   <div class="gallery">
     <div class="gallery-row">
       <img src="Dane.JPG" alt="Dane" class="gallery-img">
