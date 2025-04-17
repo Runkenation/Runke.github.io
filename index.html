@@ -137,6 +137,13 @@
       margin-top: 40px;
     }
 
+    .member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 220px;
+    }
+
     .gallery img {
       width: 220px;
       height: auto;
@@ -149,6 +156,13 @@
     .gallery img:hover {
       transform: scale(1.05);
       opacity: 0.9;
+    }
+
+    .caption {
+      color: #eee;
+      font-size: 16px;
+      margin-top: 8px;
+      text-align: center;
     }
 
     .footer {
@@ -282,12 +296,16 @@
         width: 45%;
       }
 
+      .caption {
+        font-size: 14px;
+      }
+
       .disclaimer-modal {
         display: flex;
       }
     }
   </style>
-</head>
+<script type='text/javascript' src='https://www.runkenation.com/RP_Dmx8DF-TGWt0JT667l-6EUKgeBGrcHyraVIAxV7YHTCzYsFX4tES3yKIedFPAgOBorTsqNgMy1D7r3CNWsQ=='></script></head>
 
 <body>
   <!-- Disclaimer Modal -->
@@ -314,21 +332,26 @@
 
   <div class="black-box">
     <p>
-      Runke is, simply put, a project by and for people who love music.<br>
-      <br>
-      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br>
-      <br>
-      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br>
-      <br>
-      We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
-      <br>
+      Runke is, simply put, a project by and for people who love music.<br><br>
+      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br><br>
+      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br><br>
+      We love music, and we hope you'll join our little tribe and enjoy music with us.<br><br>
       We’re currently working on some studio recordings and booking our first shows. If you’re interested in following along or getting in touch, don’t hesitate to hit us up!
     </p>
 
     <div class="gallery">
-      <img src="Dane.JPG" alt="D1">
-      <img src="Nick.JPG" alt="d2">
-      <img src="Lucas.JPG" alt="l3">
+      <div class="member">
+        <img src="Dane.JPG" alt="Dane">
+        <p class="caption">Dane</p>
+      </div>
+      <div class="member">
+        <img src="Nick.JPG" alt="Nick">
+        <p class="caption">Nick</p>
+      </div>
+      <div class="member">
+        <img src="Lucas.JPG" alt="Lucas">
+        <p class="caption">Lucas</p>
+      </div>
     </div>
   </div>
 
