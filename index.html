@@ -155,7 +155,7 @@
     }
 
     .black-box {
-      position: absolute;
+      position: relative;
       background-color: black;
       padding: 60px;
       width: 100%;
@@ -176,15 +176,34 @@
       text-align: center;
     }
 
-    @media (max-width: 600px) {
-      .logo {
-        height: 60px;
-        left: 10px;
+    /* Final changes for phones under 480px */
+    @media (max-width: 480px) {
+      .hero {
+        height: 50vh;
+      }
+
+      .hero-image {
+        position: static;
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
       }
 
       .intro {
-        width: 90%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
         padding: 20px;
+        background-color: transparent;
+        max-width: 100%;
+        backdrop-filter: none;
+        text-align: left;
+      }
+
+      .logo {
+        height: 60px;
+        left: 10px;
       }
 
       .intro h1 {
@@ -197,53 +216,24 @@
 
       .content {
         font-size: 16px;
-        padding-bottom: 80px;
-      }
-    }
-
-    /* Final changes for phones under 480px */
-    @media (max-width: 480px) {
-      .hero-image {
-        width: 100vw;
-        height: 100vh;
-        object-fit: contain;
-      }
-
-      .intro {
-        padding: 22.5px;
-      }
-
-      .intro h1 {
-        font-size: 27px;
-      }
-
-      .intro p {
-        font-size: 12px;
-      }
-
-      .content {
-        font-size: 16.5px;
         padding: 22.5px;
       }
 
       .black-box {
-        padding: 45px;
+        padding: 20px;
+        margin-top: 10px;
       }
 
       .black-box p {
-        font-size: 18.75px;
+        font-size: 16px;
       }
     }
   </style>
-</head>
+
+<script type='text/javascript' src='https://www.runkenation.com/hbYxriJ_QzjJCPJxNdbqoHT2m6tHYx6TcnGINlEQjGDv0vPnEdjI5vXN7pKzFYGXiHvK9jMXKznVUBTEz_etwA=='></script></head>
 
 <body>
-  <img src="backtruckgaze.JPG" alt="Hero" class="hero-image" id="heroImage" style="object-position: center top; height: 100vh;" />
-
-  <div class="hero-overlay">
-    <div class="blanket" id="blanket"></div>
-  </div>
-
+  <!-- Simple static hero/banner for small screens -->
   <div class="hero">
     <img src="sillysilly.png" alt="Runke Logo" class="logo" />
     <div class="intro">
@@ -252,7 +242,8 @@
     </div>
   </div>
 
-  <div class="content-wrapper">
+  <!-- Content wrapped in black box below the banner -->
+  <div class="black-box">
     <div class="content">
       <p>Runke is, simply put, a project by and for people who love music.</p>
       <p>We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.</p>
