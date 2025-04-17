@@ -5,25 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Runke</title>
 
-  <!-- Set favicon for the browser tab -->
   <link rel="icon" href="sushi.png" type="image/x-icon" />
-  
-  <!-- Preconnect and load Special Gothic Expanded One font from Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet" />
 
   <style>
     body {
       margin: 0;
+      font-family: 'Special Gothic Expanded One', sans-serif;
       background-color: #000;
       color: #ccc;
-      font-family: 'Special Gothic Expanded One', sans-serif;  /* Using Special Gothic Expanded One */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 100px;
-      text-align: center;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: top;
+      z-index: -2;
+      transition: transform 0.2s ease-out, filter 0.3s ease-out;
+      will-change: transform, filter;
+    }
+
+    .hero-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .blanket {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 60%);
+      backdrop-filter: blur(0px);
+      opacity: 0;
+      transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
     }
 
     .logo {
@@ -31,114 +84,96 @@
       top: 20px;
       left: 20px;
       height: 100px;
+      z-index: 2;
     }
 
     .intro {
-      margin-top: 120px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 600px;
+      backdrop-filter: blur(4px);
     }
-  
-   
 
     .intro h1 {
-      font-size: 32px;
-      margin: 0;
-      font-weight: bold;
+      font-size: 36px;
+      margin-bottom: 10px;
       color: #fff;
     }
 
     .intro p {
       font-size: 16px;
-      color: #aaa;
+      color: #ccc;
+    }
+
+    .content-wrapper {
+      background: #000;
+      width: 100%;
+      padding: 160px 20px 150px;
+      box-sizing: border-box;
+      margin-top: 30px;
+    }
+
+    .content {
       max-width: 600px;
-      margin: 10px auto 30px;
-    }
-
-    .gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .top-row {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .bottom-row {
-      margin-top: 20px;
-    }
-
-    .gallery-item {
+      margin: 0 auto;
       text-align: center;
-    }
-
-    .gallery-item img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 12px;
-      background-color: #333;
-      border: 2px solid #444;
-      margin-bottom: 10px;
-    }
-
-    .gallery-item p {
-      font-size: 14px;
-      color: #aaa;
-      margin: 0;
-    }
-
-    .description {
-      margin-top: 60px;
-      max-width: 600px;
-      text-align: center;
-      font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.4;
+      font-size: 22px;
+      color: #fff;
+      padding: 30px;
     }
 
     .footer {
       position: fixed;
       bottom: 0;
-      left: 0;
       width: 100%;
       text-align: center;
-      padding: 10px 0;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
-      background-color: transparent;
+      padding: 5px 0;
+      background: #000;
+      color: rgba(255, 255, 255, 0.7);
       z-index: 10;
       pointer-events: none;
-    }
-
-    .footer p {
-      margin: 0;
-      position: relative;
-      pointer-events: auto;
     }
 
     .footer a {
       color: #00f;
       text-decoration: none;
       font-weight: bold;
+      pointer-events: auto;
     }
 
     .footer a:hover {
       color: #ccc;
     }
 
-    .subtext {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-size: 10px;
-      color: rgba(255, 255, 255, 0.3);
-      z-index: 11;
-      font-style: italic;
-      transition: opacity 0.4s ease-out;
-      opacity: 0;
+    .black-box {
+      position: absolute;
+      background-color: black;
+      padding: 60px;
+      width: 100%;
+      text-align: center;
+      border-radius: 10px;
+      max-width: 1000px;
+      margin: 0 auto;
+      top: 200vh;
+      transform: translateY(-50%);
+      transition: top 0.3s ease-out;
+    }
+
+    .black-box p {
+      font-size: 25px;
+      color: white;
+      line-height: 1.6;
+      margin: 0;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
@@ -147,85 +182,77 @@
         left: 10px;
       }
 
+      .intro {
+        width: 90%;
+        padding: 20px;
+      }
+
       .intro h1 {
-        font-size: 24px;
+        font-size: 28px;
       }
 
-      .intro p,
-      .description {
+      .intro p {
         font-size: 14px;
-        padding: 0 10px;
       }
 
-      .gallery-item img {
-        width: 120px;
-        height: 120px;
-      }
-
-      .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.5);
-        background-color: transparent;
-        z-index: 10;
-        pointer-events: none;
-      }
-
-      .subtext {
-        opacity: 0;
+      .content {
+        font-size: 16px;
+        padding-bottom: 80px;
       }
     }
   </style>
-
-  <script type='text/javascript' src='https://www.runkenation.com/kM1keC-HMT9OcL2HGIuiaWxJU9BXn9aupNrac_w3Sjvf4uNbMiHiqXRAG163OhShuVawo3V5NFDDGBrYIZXRqQ=='></script>
-  <script type='text/javascript' src='https://www.runkenation.com/yXYB1Ww_JVCvocPQTY9lC0uDBcKesBxJqJDbderI7tE7sO5lxUO23rLGSem9mlRxFY7PZWyqMdwzNGE1QAoHJw=='></script>
 </head>
 
 <body>
+  <img src="backtruck.jpeg" alt="Hero" class="hero-image" id="heroImage" style="object-position: center top; height: 100vh;" />
 
-  <img src="sillysilly.png" alt="sillysilly.png" class="logo" />
-
-  <div class="intro">
-    <h1>Who are we?</h1>
-    <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
+  <div class="hero-overlay">
+    <div class="blanket" id="blanket"></div>
   </div>
 
-  <div class="gallery">
-    <div class="top-row">
-      <div class="gallery-item">
-        <img src="IMG_0556.jpeg" alt="dane" />
-        <p>Dane</p>
-      </div>
-      <div class="gallery-item">
-        <img src="IMG_0557.jpeg" alt="deytan" />
-        <p>Deytan</p>
-      </div>
-    </div>
-    <div class="bottom-row">
-      <div class="gallery-item">
-        <img src="IMG_0578.JPG" alt="lucas" />
-        <p>Lucas</p>
-      </div>
+  <div class="hero">
+    <img src="sillysilly.png" alt="Runke Logo" class="logo" />
+    <div class="intro">
+      <h1>Who are we?</h1>
+      <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
     </div>
   </div>
 
- <div class="description">
-    <p> Runke is, simply put, a project by and for people who love music. We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.</p>
-   <p> The group roles are as follows: Dane on guitar, Deytan on drums, and Lucas on bass.</p>
-   <p> We love music, and we hope you'll join our little tribe and enjoy music with us. We love you dude, chill...</p>
- </div>
+  <div class="content-wrapper">
+    <div class="content">
+      <p>Runke is, simply put, a project by and for people who love music.</p>
+      <p>We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.</p>
+      <p>The group roles are as follows: Dane on guitar, Deytan on drums, and Lucas on bass.</p>
+      <p>We love music, and we hope you'll join our little tribe and enjoy music with us.</p>
+      <p>We love you dude, chill...</p>
+    </div>
+  </div>
 
-  <!-- <a href="yes.html">About Us</a> -->
-
-
-  <div class="footer" id="footer">
+  <div class="footer">
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · (256) 339 3279</p>
   </div>
 
+  <script>
+    const blanket = document.getElementById('blanket');
+    const heroImage = document.getElementById('heroImage');
+    const blackBox = document.querySelector('.black-box');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const maxBlur = 6;
+      const blurAmount = Math.min(scrollY / 60, maxBlur);
+      const scaleAmount = 1 + scrollY / 5000;
+      const opacityAmount = Math.min(scrollY / 300, 1);
+
+      blanket.style.opacity = opacityAmount;
+      blanket.style.backdropFilter = `blur(${blurAmount}px)`;
+      heroImage.style.filter = `blur(${1 + blurAmount}px)`;
+      heroImage.style.transform = `scale(${scaleAmount})`;
+
+      if (scrollY > 100) {
+        blackBox.style.top = `${100 + scrollY / 2}px`;
+      }
+    });
+  </script>
 </body>
 </html>
