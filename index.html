@@ -280,7 +280,7 @@
         line-height: 1.5;
       }
 
-      /* Move Gallery under "Who are we" section on small screens */
+      /* Move Gallery under "Who are we" on small screens */
       .gallery {
         padding-top: 20px;
         width: 100vw;
@@ -295,6 +295,13 @@
       /* Ensure gallery appears below "Who are we" on mobile */
       .black-box .gallery {
         margin-top: 0;
+      }
+    }
+
+    /* Desktop only - Gallery below all content */
+    @media (min-width: 481px) {
+      .gallery {
+        margin-top: 60px; /* To add some space from previous content */
       }
     }
   </style>
@@ -324,17 +331,6 @@
     </div>
   </div>
 
-  <!-- Move Gallery under "Who are we" on mobile -->
-  <div class="gallery">
-    <div class="gallery-row">
-      <img src="Dane.JPG" alt="Dane" class="gallery-img">
-      <img src="Nick.JPG" alt="Nick" class="gallery-img">
-    </div>
-    <div class="gallery-row center">
-      <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
-    </div>
-  </div>
-
   <div class="black-box">
     <p>
       Runke is, simply put, a project by and for people who love music.<br>
@@ -345,6 +341,17 @@
       <br>
       We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
     </p>
+  </div>
+
+  <!-- Gallery below content on desktop -->
+  <div class="gallery">
+    <div class="gallery-row">
+      <img src="Dane.JPG" alt="Dane" class="gallery-img">
+      <img src="Nick.JPG" alt="Nick" class="gallery-img">
+    </div>
+    <div class="gallery-row center">
+      <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+    </div>
   </div>
 
   <div class="footer">
