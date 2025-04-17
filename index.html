@@ -200,11 +200,44 @@
         padding-bottom: 80px;
       }
     }
+
+    /* Added adjustments for devices under 480px */
+    @media (max-width: 480px) {
+      .hero-image {
+        width: 100vw;
+        object-fit: cover;
+      }
+
+      .intro {
+        padding: 22.5px; /* 25% smaller than 30px */
+      }
+
+      .intro h1 {
+        font-size: 27px;
+      }
+
+      .intro p {
+        font-size: 12px;
+      }
+
+      .content {
+        font-size: 16.5px; /* ~25% smaller */
+        padding: 22.5px;    /* 25% smaller */
+      }
+
+      .black-box {
+        padding: 45px;      /* 25% smaller */
+      }
+
+      .black-box p {
+        font-size: 18.75px; /* 25% smaller */
+      }
+    }
   </style>
 </head>
 
 <body>
-  <img src="backtruck.jpeg" alt="Hero" class="hero-image" id="heroImage" style="object-position: center top; height: 100vh;" />
+  <img src="backtruckgaze.JPG" alt="Hero" class="hero-image" id="heroImage" style="object-position: center top; height: 100vh;" />
 
   <div class="hero-overlay">
     <div class="blanket" id="blanket"></div>
