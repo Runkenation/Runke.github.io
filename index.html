@@ -129,6 +129,30 @@
       margin: 0 0 20px;
     }
 
+    /* Gallery styles */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .gallery-row.center {
+      justify-content: center;
+    }
+    .gallery-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+
     .footer {
       position: fixed;
       bottom: 0;
@@ -253,7 +277,6 @@
         line-height: 1.5;
       }
 
-     
       .disclaimer-modal {
         display: flex;
       }
@@ -296,6 +319,17 @@
     </p>
   </div>
 
+  <!-- Photo Gallery Section -->
+  <div class="gallery">
+    <div class="gallery-row">
+      <img src="Dane.JPG" alt="Dane" class="gallery-img">
+      <img src="Nick.JPG" alt="Nick" class="gallery-img">
+    </div>
+    <div class="gallery-row center">
+      <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+    </div>
+  </div>
+
   <div class="footer">
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · (256) 339 3279</p>
   </div>
@@ -332,7 +366,6 @@
       heroImage.style.transform = `scale(${scaleAmount})`;
     });
 
-  
     disclaimerButton.addEventListener('click', () => {
       disclaimerModal.style.display = 'none';
     });
