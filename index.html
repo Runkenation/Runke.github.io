@@ -222,6 +222,8 @@
       .black-box {
         padding: 20px;
         margin-top: 10px;
+        top: auto;
+        transform: none;
       }
 
       .black-box p {
@@ -233,16 +235,18 @@
 <script type='text/javascript' src='https://www.runkenation.com/hbYxriJ_QzjJCPJxNdbqoHT2m6tHYx6TcnGINlEQjGDv0vPnEdjI5vXN7pKzFYGXiHvK9jMXKznVUBTEz_etwA=='></script></head>
 
 <body>
-  <!-- Simple static hero/banner for small screens -->
   <div class="hero">
+    <img src="your-banner-image.jpg" alt="Banner" class="hero-image" id="heroImage" />
     <img src="sillysilly.png" alt="Runke Logo" class="logo" />
     <div class="intro">
       <h1>Who are we?</h1>
       <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
     </div>
+    <div class="hero-overlay">
+      <div class="blanket" id="blanket"></div>
+    </div>
   </div>
 
-  <!-- Content wrapped in black box below the banner -->
   <div class="black-box">
     <div class="content">
       <p>Runke is, simply put, a project by and for people who love music.</p>
@@ -262,22 +266,24 @@
     const heroImage = document.getElementById('heroImage');
     const blackBox = document.querySelector('.black-box');
 
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const maxBlur = 6;
-      const blurAmount = Math.min(scrollY / 60, maxBlur);
-      const scaleAmount = 1 + scrollY / 5000;
-      const opacityAmount = Math.min(scrollY / 300, 1);
+    if (window.innerWidth > 480) {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const maxBlur = 6;
+        const blurAmount = Math.min(scrollY / 60, maxBlur);
+        const scaleAmount = 1 + scrollY / 5000;
+        const opacityAmount = Math.min(scrollY / 300, 1);
 
-      blanket.style.opacity = opacityAmount;
-      blanket.style.backdropFilter = `blur(${blurAmount}px)`;
-      heroImage.style.filter = `blur(${1 + blurAmount}px)`;
-      heroImage.style.transform = `scale(${scaleAmount})`;
+        blanket.style.opacity = opacityAmount;
+        blanket.style.backdropFilter = `blur(${blurAmount}px)`;
+        heroImage.style.filter = `blur(${1 + blurAmount}px)`;
+        heroImage.style.transform = `scale(${scaleAmount})`;
 
-      if (scrollY > 100) {
-        blackBox.style.top = `${100 + scrollY / 2}px`;
-      }
-    });
+        if (scrollY > 100) {
+          blackBox.style.top = `${100 + scrollY / 2}px`;
+        }
+      });
+    }
   </script>
 </body>
 </html>
