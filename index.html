@@ -17,33 +17,6 @@
       background-color: #000;
       color: #ccc;
       overflow-x: hidden;
-      min-height: calc(100vh + 100px);
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
     }
 
     .hero-image {
@@ -53,31 +26,16 @@
       width: 100%;
       height: 100vh;
       object-fit: cover;
-      object-position: top;
       z-index: -2;
-      transition: transform 0.2s ease-out, filter 0.3s ease-out;
-      will-change: transform, filter;
     }
 
-    .hero-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .hero {
+      position: relative;
       height: 100vh;
-      width: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .blanket {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 100vh;
-      background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 60%);
-      backdrop-filter: blur(0px);
-      opacity: 0;
-      transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .logo {
@@ -85,26 +43,19 @@
       top: 20px;
       left: 20px;
       height: 100px;
-      z-index: 2;
     }
 
     .intro {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
       background-color: rgba(0, 0, 0, 0.65);
       padding: 30px;
       border-radius: 16px;
-      text-align: center;
       max-width: 600px;
-      backdrop-filter: blur(4px);
+      margin: auto;
+      z-index: 1;
     }
 
     .intro h1 {
       font-size: 36px;
-      margin-bottom: 10px;
       color: #fff;
     }
 
@@ -116,39 +67,19 @@
     .black-box {
       background-color: black;
       padding: 60px 20px;
-      width: 100vw;
-      text-align: center;
-      border-radius: 10px;
+      width: 100%;
       box-sizing: border-box;
+      text-align: center;
     }
 
     .black-box p {
-      font-size: 25px;
+      font-size: 20px;
       color: white;
-      line-height: 1.6;
-      margin: 0 0 20px;
+      margin-bottom: 30px;
     }
 
-    /* Desktop Gallery */
-    .desktop-gallery {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      padding: 40px 0 0;
-    }
-
-    .desktop-gallery-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .desktop-gallery-row.center {
-      justify-content: center;
-    }
-
-    .desktop-gallery-img {
+    /* GALLERY SHARED */
+    .gallery-img {
       width: 150px;
       height: 150px;
       object-fit: cover;
@@ -156,74 +87,83 @@
       box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     }
 
-    /* Mobile Gallery */
-    .mobile-gallery {
-      display: none;
-      padding-top: 0;
-      text-align: center;
-    }
-
-    .mobile-gallery-row {
+    .gallery-row {
       display: flex;
       justify-content: center;
-      gap: 25px; /* Increased gap to spread images out */
+      gap: 24px;
+      margin-bottom: 20px;
     }
 
-    .mobile-gallery-row.center {
-      justify-content: center;
+    /* DESKTOP GALLERY */
+    .desktop-gallery {
+      display: none;
     }
 
-    .mobile-gallery-img {
-      width: 160px; /* Slightly larger size for mobile */
-      height: 160px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    /* MOBILE GALLERY */
+    .mobile-gallery {
+      display: none;
+      margin-top: 20px;
+      margin-bottom: 30px;
     }
 
-    /* Footer */
-    .footer {
+    /* MOBILE DISCLAIMER */
+    .disclaimer-modal {
+      display: none;
       position: fixed;
-      bottom: 0;
-      width: 100%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .disclaimer-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      color: black;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .disclaimer-content button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .footer {
       text-align: center;
       font-size: 14px;
-      padding: 5px 0;
-      background: #000;
+      padding: 20px 0;
       color: rgba(255, 255, 255, 0.7);
-      z-index: 10;
-      pointer-events: none;
     }
 
     .footer a {
-      color: #00f;
+      color: #0af;
       text-decoration: none;
-      font-weight: bold;
-      pointer-events: auto;
     }
 
-    .footer a:hover {
-      color: #ccc;
-    }
-
-    /* Mobile Specific Styling */
-    @media (max-width: 480px) {
+    /* MOBILE DEVICES: under 600px */
+    @media (max-width: 599px) {
       .hero {
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        padding-bottom: 100px;
+        height: auto;
+        padding-top: 200px;
       }
 
       .hero-image {
         position: static;
-        top: 0;
         height: 200px;
-        object-fit: cover;
-        object-position: center;
-        z-index: 1;
       }
 
       .logo {
@@ -231,125 +171,59 @@
       }
 
       .intro {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        padding: 30px 20px;
-        background-color: black;
-        max-width: 100%;
-        text-align: center;
+        background: black;
         border-radius: 0;
-        width: 100vw;
+        padding: 30px 20px;
       }
 
       .intro h1 {
-        font-size: 32px;
-        color: white;
-        font-weight: bold;
+        font-size: 28px;
       }
 
       .intro p {
-        font-size: 18px;
-        color: #f1f1f1;
-        font-weight: 500;
+        font-size: 16px;
       }
 
-      .black-box {
-        padding: 30px 20px 0;
-        margin-top: 0;
-        width: 100vw;
-        position: relative;
-      }
-
-      .black-box p {
-        font-size: 16.5px;
-        line-height: 1.5;
-      }
-
-      /* Mobile Gallery, after Who are we section */
       .mobile-gallery {
         display: block;
-        padding-top: 0; /* Remove the gap between "Who are we" and gallery */
       }
 
-      /* Add gap after the gallery */
-      .mobile-gallery + .footer {
-        padding-top: 20px;
-      }
-
-      /* Hide desktop gallery on mobile */
       .desktop-gallery {
         display: none;
       }
 
-      /* Show the disclaimer modal on mobile devices */
       .disclaimer-modal {
         display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.7);
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        backdrop-filter: blur(5px);
-      }
-
-      .disclaimer-content {
-        background-color: #fff;
-        color: #000;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-      }
-
-      .disclaimer-content button {
-        background-color: #000;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      .disclaimer-content button:hover {
-        background-color: #333;
       }
     }
 
-    /* Hide disclaimer on desktop */
-    @media (min-width: 481px) {
-      .disclaimer-modal {
+    /* DESKTOP DEVICES: 600px and up */
+    @media (min-width: 600px) {
+      .mobile-gallery {
         display: none;
       }
 
       .desktop-gallery {
         display: block;
+      }
+
+      .disclaimer-modal {
+        display: none;
       }
     }
   </style>
-  <script type='text/javascript' src='https://www.runkenation.com/p6TEBIFsqk5myIC4-PHiohSJf1d1OzQ1n3h4AJ6N_hQ-PiicjyKaA8egVmzFS4XMcge4YvU7RRckF6oDMZpgTg=='></script>
-  <script type='text/javascript' src='https://www.runkenation.com/q_TfExAYM9SOlATljwAE_10IRgQ7mzl8oHnmwCrG3HZN-iiK42J-EtiyKu6QqdyEWU4CuOnmehw9crb3O7dqDQ=='></script>
 </head>
 
 <body>
-  <!-- Disclaimer Modal -->
+  <!-- DISCLAIMER POPUP -->
   <div class="disclaimer-modal" id="disclaimerModal">
     <div class="disclaimer-content">
       <p><strong>WARNING:</strong> This site is really only optimized on computer, so it won't be very pretty on the phone we can tell you are using.</p>
-      <button id="disclaimerButton">Okay</button>
+      <button id="closeDisclaimer">Okay</button>
     </div>
   </div>
 
-  <img src="backtruck.jpeg" alt="Hero" class="hero-image" id="heroImage" />
-
-  <div class="hero-overlay">
-    <div class="blanket" id="blanket"></div>
-  </div>
+  <img src="backtruck.jpeg" alt="Hero" class="hero-image" />
 
   <div class="hero">
     <img src="sillysilly.png" alt="Runke Logo" class="logo" />
@@ -357,38 +231,35 @@
       <h1>Who are we?</h1>
       <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
     </div>
+
+    <!-- MOBILE GALLERY (AFTER WHO ARE WE) -->
+    <div class="mobile-gallery">
+      <div class="gallery-row">
+        <img src="Dane.JPG" alt="Dane" class="gallery-img" />
+        <img src="Nick.JPG" alt="Nick" class="gallery-img" />
+      </div>
+      <div class="gallery-row">
+        <img src="Lucas.JPG" alt="Lucas" class="gallery-img" />
+      </div>
+    </div>
   </div>
 
   <div class="black-box">
     <p>
-      Runke is, simply put, a project by and for people who love music.<br>
-      <br>
-      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br>
-      <br>
-      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br>
-      <br>
-      We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
+      Runke is, simply put, a project by and for people who love music.<br><br>
+      We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br><br>
+      The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br><br>
+      We love music, and we hope you'll join our little tribe and enjoy music with us.
     </p>
 
-    <!-- Desktop Gallery placed inside the black box -->
+    <!-- DESKTOP GALLERY (AT THE BOTTOM) -->
     <div class="desktop-gallery">
-      <div class="desktop-gallery-row">
-        <img src="Dane.JPG" alt="Dane" class="desktop-gallery-img">
-        <img src="Nick.JPG" alt="Nick" class="desktop-gallery-img">
+      <div class="gallery-row">
+        <img src="Dane.JPG" alt="Dane" class="gallery-img" />
+        <img src="Nick.JPG" alt="Nick" class="gallery-img" />
       </div>
-      <div class="desktop-gallery-row center">
-        <img src="Lucas.JPG" alt="Lucas" class="desktop-gallery-img">
-      </div>
-    </div>
-
-    <!-- Mobile Gallery placed after the "Who are we?" section -->
-    <div class="mobile-gallery">
-      <div class="mobile-gallery-row">
-        <img src="Dane.JPG" alt="Dane" class="mobile-gallery-img">
-        <img src="Nick.JPG" alt="Nick" class="mobile-gallery-img">
-      </div>
-      <div class="mobile-gallery-row center">
-        <img src="Lucas.JPG" alt="Lucas" class="mobile-gallery-img">
+      <div class="gallery-row">
+        <img src="Lucas.JPG" alt="Lucas" class="gallery-img" />
       </div>
     </div>
   </div>
@@ -398,12 +269,11 @@
   </div>
 
   <script>
-    const disclaimerModal = document.getElementById('disclaimerModal');
-    const disclaimerButton = document.getElementById('disclaimerButton');
+    const disclaimer = document.getElementById("disclaimerModal");
+    const closeBtn = document.getElementById("closeDisclaimer");
 
-    // Hide the disclaimer and unblur the background when clicking "Okay"
-    disclaimerButton.addEventListener('click', () => {
-      disclaimerModal.style.display = 'none';
+    closeBtn.addEventListener("click", () => {
+      disclaimer.style.display = "none";
     });
   </script>
 </body>
