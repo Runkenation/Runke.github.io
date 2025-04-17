@@ -281,17 +281,16 @@
         line-height: 1.5;
       }
 
-      /* Move Gallery directly after 'Who are we' section on mobile */
-      .gallery {
+      /* Mobile Gallery, after Who are we section */
+      .mobile-gallery {
+        display: block;
         padding-top: 20px;
-        margin-top: 20px;
-        width: 100vw;
         text-align: center;
       }
 
-      /* Ensure gallery appears below 'Who are we' */
-      .black-box .gallery {
-        margin-top: 0;
+      /* Hide desktop gallery on mobile */
+      .desktop-gallery {
+        display: none;
       }
 
       .disclaimer-modal {
@@ -299,10 +298,16 @@
       }
     }
 
-    /* Desktop only - Gallery inside the black-box */
+    /* Desktop Gallery inside black-box */
     @media (min-width: 481px) {
-      .black-box .gallery {
+      .desktop-gallery {
+        display: block;
         margin-top: 40px;
+      }
+
+      /* Hide mobile gallery on desktop */
+      .mobile-gallery {
+        display: none;
       }
     }
   </style>
@@ -332,7 +337,20 @@
     </div>
   </div>
 
-  <!-- Gallery inside black-box -->
+  <!-- Mobile Gallery (After Who are we) -->
+  <div class="mobile-gallery">
+    <div class="gallery">
+      <div class="gallery-row">
+        <img src="Dane.JPG" alt="Dane" class="gallery-img">
+        <img src="Nick.JPG" alt="Nick" class="gallery-img">
+      </div>
+      <div class="gallery-row center">
+        <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery inside black-box for desktop -->
   <div class="black-box">
     <p>
       Runke is, simply put, a project by and for people who love music.<br>
@@ -344,14 +362,16 @@
       We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
     </p>
 
-    <!-- Gallery inside black-box -->
-    <div class="gallery">
-      <div class="gallery-row">
-        <img src="Dane.JPG" alt="Dane" class="gallery-img">
-        <img src="Nick.JPG" alt="Nick" class="gallery-img">
-      </div>
-      <div class="gallery-row center">
-        <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+    <!-- Desktop Gallery inside black-box -->
+    <div class="desktop-gallery">
+      <div class="gallery">
+        <div class="gallery-row">
+          <img src="Dane.JPG" alt="Dane" class="gallery-img">
+          <img src="Nick.JPG" alt="Nick" class="gallery-img">
+        </div>
+        <div class="gallery-row center">
+          <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+        </div>
       </div>
     </div>
   </div>
