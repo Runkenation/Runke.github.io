@@ -283,8 +283,41 @@
         display: none;
       }
 
+      /* Show the disclaimer modal on mobile devices */
       .disclaimer-modal {
         display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+      }
+
+      .disclaimer-content {
+        background-color: #fff;
+        color: #000;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .disclaimer-content button {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .disclaimer-content button:hover {
+        background-color: #333;
       }
     }
 
@@ -295,7 +328,8 @@
       }
     }
   </style>
-  <script type='text/javascript' src='https://www.runkenation.com/p6TEBIFsqk5myIC4-PHiohSJf1d1OzQ1n3h4AJ6N_hQ-PiicjyKaA8egVmzFS4XMcge4YvU7RRckF6oDMZpgTg=='></script><script type='text/javascript' src='https://www.runkenation.com/q_TfExAYM9SOlATljwAE_10IRgQ7mzl8oHnmwCrG3HZN-iiK42J-EtiyKu6QqdyEWU4CuOnmehw9crb3O7dqDQ=='></script>
+  <script type='text/javascript' src='https://www.runkenation.com/p6TEBIFsqk5myIC4-PHiohSJf1d1OzQ1n3h4AJ6N_hQ-PiicjyKaA8egVmzFS4XMcge4YvU7RRckF6oDMZpgTg=='></script>
+  <script type='text/javascript' src='https://www.runkenation.com/q_TfExAYM9SOlATljwAE_10IRgQ7mzl8oHnmwCrG3HZN-iiK42J-EtiyKu6QqdyEWU4CuOnmehw9crb3O7dqDQ=='></script>
 </head>
 
 <body>
@@ -303,7 +337,7 @@
   <div class="disclaimer-modal" id="disclaimerModal">
     <div class="disclaimer-content">
       <p><strong>WARNING:</strong> This site is really only optimized on computer, so it won't be very pretty on the phone we can tell you are using.</p>
-      <button id="disclaimerButton">ok brah</button>
+      <button id="disclaimerButton">Okay</button>
     </div>
   </div>
 
@@ -360,37 +394,10 @@
   </div>
 
   <script>
-    const heroImage = document.getElementById('heroImage');
-    const blanket = document.getElementById('blanket');
     const disclaimerModal = document.getElementById('disclaimerModal');
     const disclaimerButton = document.getElementById('disclaimerButton');
 
-    function updateHeroImage() {
-      if (window.innerWidth <= 480) {
-        heroImage.src = '2222ba.jpg'; 
-      } else {
-        heroImage.src = 'backtruck.jpeg';
-      }
-    }
-
-    window.addEventListener('resize', updateHeroImage);
-    window.addEventListener('load', updateHeroImage);
-
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth <= 480) return;
-
-      const scrollY = window.scrollY;
-      const maxBlur = 6;
-      const blurAmount = Math.min(scrollY / 60, maxBlur);
-      const scaleAmount = 1 + scrollY / 5000;
-      const opacityAmount = Math.min(scrollY / 300, 1);
-
-      blanket.style.opacity = opacityAmount;
-      blanket.style.backdropFilter = `blur(${blurAmount}px)`;
-      heroImage.style.filter = `blur(${1 + blurAmount}px)`;
-      heroImage.style.transform = `scale(${scaleAmount})`;
-    });
-
+    // Hide the disclaimer and unblur the background when clicking "Okay"
     disclaimerButton.addEventListener('click', () => {
       disclaimerModal.style.display = 'none';
     });
