@@ -120,6 +120,7 @@
       text-align: center;
       border-radius: 10px;
       box-sizing: border-box;
+      margin-top: 20px;
     }
 
     .black-box p {
@@ -298,10 +299,10 @@
       }
     }
 
-    /* Desktop only - Gallery below all content */
+    /* Desktop only - Gallery inside the black-box */
     @media (min-width: 481px) {
-      .gallery {
-        margin-top: 60px; /* To add some space from previous content */
+      .black-box .gallery {
+        margin-top: 40px;
       }
     }
   </style>
@@ -331,6 +332,7 @@
     </div>
   </div>
 
+  <!-- Gallery inside black-box -->
   <div class="black-box">
     <p>
       Runke is, simply put, a project by and for people who love music.<br>
@@ -341,16 +343,16 @@
       <br>
       We love music, and we hope you'll join our little tribe and enjoy music with us.<br>
     </p>
-  </div>
 
-  <!-- Gallery below content on desktop -->
-  <div class="gallery">
-    <div class="gallery-row">
-      <img src="Dane.JPG" alt="Dane" class="gallery-img">
-      <img src="Nick.JPG" alt="Nick" class="gallery-img">
-    </div>
-    <div class="gallery-row center">
-      <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+    <!-- Gallery inside black-box -->
+    <div class="gallery">
+      <div class="gallery-row">
+        <img src="Dane.JPG" alt="Dane" class="gallery-img">
+        <img src="Nick.JPG" alt="Nick" class="gallery-img">
+      </div>
+      <div class="gallery-row center">
+        <img src="Lucas.JPG" alt="Lucas" class="gallery-img">
+      </div>
     </div>
   </div>
 
