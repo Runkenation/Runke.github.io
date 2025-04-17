@@ -17,6 +17,25 @@
       background-color: #000;
       color: #ccc;
       overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
     .hero {
@@ -35,6 +54,8 @@
       object-fit: cover;
       object-position: top;
       z-index: -2;
+      transition: transform 0.2s ease-out, filter 0.3s ease-out;
+      will-change: transform, filter;
     }
 
     .hero-overlay {
@@ -45,6 +66,25 @@
       width: 100%;
       z-index: -1;
       pointer-events: none;
+    }
+
+    .blanket {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 60%);
+      backdrop-filter: blur(0px);
+      opacity: 0;
+      transition: opacity 0.3s ease-out, backdrop-filter 0.3s ease-out;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 100px;
+      z-index: 2;
     }
 
     .intro {
@@ -62,15 +102,14 @@
     }
 
     .intro h1 {
-      font-size: 40px;
-      font-weight: bold;
+      font-size: 36px;
+      margin-bottom: 10px;
       color: #fff;
     }
 
     .intro p {
-      font-size: 20px;
-      color: #f1f1f1;
-      font-weight: 500;
+      font-size: 16px;
+      color: #ccc;
     }
 
     .black-box {
@@ -87,23 +126,48 @@
       color: white;
       line-height: 1.6;
       margin: 0;
-      text-align: center;
     }
 
-    /* Phone Styling */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      padding: 5px 0;
+      background: #000;
+      color: rgba(255, 255, 255, 0.7);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .footer a {
+      color: #00f;
+      text-decoration: none;
+      font-weight: bold;
+      pointer-events: auto;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+    }
+
+    /* Responsive styles for mobile devices */
     @media (max-width: 480px) {
       .hero {
-        height: 50vh;
+        height: auto;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
       }
 
       .hero-image {
         position: relative;
         width: 100%;
-        height: 50vh;
+        height: auto;
         object-fit: cover;
+        object-position: center;
       }
 
       .intro {
@@ -111,7 +175,7 @@
         top: auto;
         left: auto;
         transform: none;
-        padding: 20px;
+        padding: 30px 20px;
         background-color: black;
         max-width: 100%;
         text-align: center;
@@ -120,9 +184,9 @@
       }
 
       .intro h1 {
-        font-size: 36px;
+        font-size: 32px;
+        color: white;
         font-weight: bold;
-        color: #fff;
       }
 
       .intro p {
@@ -132,37 +196,64 @@
       }
 
       .black-box {
-        padding: 30px;
-        margin-top: 10px;
+        padding: 30px 20px;
+        margin-top: 0;
         width: 100vw;
-        text-align: center;
       }
 
       .black-box p {
-        font-size: 16px;
+        font-size: 16.5px;
+        line-height: 1.5;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="hero">
-    <img src="backtruck.jpeg" alt="Banner" class="hero-image" />
+  <img src="backtruckgaze.JPG" alt="Hero" class="hero-image" id="heroImage" />
+
+  <div class="hero-overlay">
+    <div class="blanket" id="blanket"></div>
   </div>
 
-  <div class="intro">
-    <h1>Who are we?</h1>
-    <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
+  <div class="hero">
+    <img src="sillysilly.png" alt="Runke Logo" class="logo" />
+    <div class="intro">
+      <h1>Who are we?</h1>
+      <p>We (runke) are a 3 person alternative rock band. The three of us have grown up with a strong friendship, a deep connection to music theory, and a strong desire to make music.</p>
+    </div>
   </div>
 
   <div class="black-box">
-    <div class="content">
-      <p>Runke is, simply put, a project by and for people who love music.</p>
-      <p>We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.</p>
-      <p>The group roles are as follows: Dane on guitar, Deytan on drums, and Lucas on bass.</p>
-      <p>We love music, and we hope you'll join our little tribe and enjoy music with us.</p>
-      <p>We love you dude, chill...</p>
-    </div>
+    <p>Runke is, simply put, a project by and for people who love music.</p>
+    <p>We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.</p>
+    <p>The group roles are as follows: Dane on guitar, Deytan on drums, and Lucas on bass.</p>
+    <p>We love music, and we hope you'll join our little tribe and enjoy music with us.</p>
+    <p>We love you dude, chill...</p>
   </div>
+
+  <div class="footer">
+    <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · (256) 339 3279</p>
+  </div>
+
+  <script>
+    const blanket = document.getElementById('blanket');
+    const heroImage = document.getElementById('heroImage');
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 480) return;
+
+      const scrollY = window.scrollY;
+      const maxBlur = 6;
+      const blurAmount = Math.min(scrollY / 60, maxBlur);
+      const scaleAmount = 1 + scrollY / 5000;
+      const opacityAmount = Math.min(scrollY / 300, 1);
+
+      blanket.style.opacity = opacityAmount;
+      blanket.style.backdropFilter = `blur(${blurAmount}px)`;
+      heroImage.style.filter = `blur(${1 + blurAmount}px)`;
+      heroImage.style.transform = `scale(${scaleAmount})`;
+    });
+  </script>
 </body>
 </html>
