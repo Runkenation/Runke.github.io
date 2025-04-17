@@ -281,21 +281,21 @@
         line-height: 1.5;
       }
 
-      /* Move Gallery under "Who are we" on small screens */
+      /* Move Gallery directly after 'Who are we' section on mobile */
       .gallery {
         padding-top: 20px;
+        margin-top: 20px;
         width: 100vw;
         text-align: center;
-        margin-top: 40px;
+      }
+
+      /* Ensure gallery appears below 'Who are we' */
+      .black-box .gallery {
+        margin-top: 0;
       }
 
       .disclaimer-modal {
         display: flex;
-      }
-
-      /* Ensure gallery appears below "Who are we" on mobile */
-      .black-box .gallery {
-        margin-top: 0;
       }
     }
 
@@ -355,7 +355,6 @@
       </div>
     </div>
   </div>
-  <br>
 
   <div class="footer">
     <p><a href="https://www.instagram.com/runke_nation/" target="_blank">@Runke_Nation</a> · RunkeNation@gmail.com · (256) 339 3279</p>
