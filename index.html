@@ -229,8 +229,33 @@
     .disclaimer-content button:hover {
       background-color: #ccc;
     }
+
+    /* Mobile zoom + image size adjustments */
+    @media (max-width: 480px) {
+      html {
+        zoom: 70%;
+      }
+
+      .gallery {
+        gap: 12px;
+        padding: 0 10px;
+      }
+
+      .gallery img {
+        width: 130px;
+        height: auto;
+      }
+
+      .caption {
+        font-size: 14px;
+      }
+
+      .member {
+        max-width: 140px;
+      }
+    }
   </style>
-<script type='text/javascript' src='https://www.runkenation.com/RP_Dmx8DF-TGWt0JT667l-6EUKgeBGrcHyraVIAxV7YHTCzYsFX4tES3yKIedFPAgOBorTsqNgMy1D7r3CNWsQ=='></script>
+  <script type='text/javascript' src='https://www.runkenation.com/RP_Dmx8DF-TGWt0JT667l-6EUKgeBGrcHyraVIAxV7YHTCzYsFX4tES3yKIedFPAgOBorTsqNgMy1D7r3CNWsQ=='></script>
 </head>
 
 <body>
@@ -261,7 +286,7 @@
       Runke is, simply put, a project by and for people who love music.<br><br>
       We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br><br>
       The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br><br>
-      We love music, and we hope you'll join us in our journey :)  <br>
+      We love music, and we hope you'll join us in our journey :)<br>
     </p>
 
     <div class="gallery">
@@ -289,28 +314,6 @@
     const blanket = document.getElementById('blanket');
     const disclaimerModal = document.getElementById('disclaimerModal');
     const disclaimerButton = document.getElementById('disclaimerButton');
-
-    function updateHeroImage() {
-      heroImage.src = 'backtruck.jpeg';
-    }
-
-    function applyMobileZoom() {
-      if (window.innerWidth <= 480) {
-        document.body.style.zoom = "70%";
-      } else {
-        document.body.style.zoom = "100%";
-      }
-    }
-
-    window.addEventListener('resize', () => {
-      updateHeroImage();
-      applyMobileZoom();
-    });
-
-    window.addEventListener('load', () => {
-      updateHeroImage();
-      applyMobileZoom();
-    });
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
