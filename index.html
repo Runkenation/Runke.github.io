@@ -2,15 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Runke</title>
 
+  <!-- Favicon -->
   <link rel="icon" href="sushi.png" type="image/x-icon" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet" />
 
+  <!-- SOCIAL MEDIA PREVIEW TAGS -->
+  <meta property="og:title" content="Runke" />
+  <meta property="og:description" content="Runke is an alternative rock band by kids who like punk rock, 1st-2nd wave Emo, and shoegaze." />
+  <meta property="og:image" content="Screenshot 2025-04-07 233259.png" />
+  <meta property="og:url" content="https://runkenation.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Runke - Alternative Rock Band" />
+  <meta name="twitter:description" content="3-person alternative rock band making emo, punk, and shoegaze-inspired music." />
+  <meta name="twitter:image" content="Screenshot 2025-04-07 233259.png" />
+
   <style>
+    html {
+      zoom: 1;
+    }
+
+    @media (max-width: 480px) {
+      html {
+        zoom: 0.7;
+      }
+    }
+
     body {
       margin: 0;
       font-family: 'Special Gothic Expanded One', sans-serif;
@@ -146,7 +170,7 @@
     }
 
     .gallery img {
-      width: 195px;
+      width: 160px;
       height: auto;
       border-radius: 12px;
       object-fit: cover;
@@ -229,44 +253,13 @@
     .disclaimer-content button:hover {
       background-color: #ccc;
     }
-
-    /* Mobile zoom + image size adjustments */
-    @media (max-width: 480px) {
-      html {
-        zoom: 70%;
-      }
-
-      .gallery {
-        gap: 12px;
-        padding: 0 10px;
-      }
-
-      .gallery img {
-        width: 130px;
-        height: auto;
-      }
-
-      .caption {
-        font-size: 14px;
-      }
-
-      .member {
-        max-width: 140px;
-      }
-    }
   </style>
+
   <script type='text/javascript' src='https://www.runkenation.com/RP_Dmx8DF-TGWt0JT667l-6EUKgeBGrcHyraVIAxV7YHTCzYsFX4tES3yKIedFPAgOBorTsqNgMy1D7r3CNWsQ=='></script>
 </head>
 
 <body>
-  <!-- Disclaimer Modal -->
-  <div class="disclaimer-modal" id="disclaimerModal">
-    <div class="disclaimer-content">
-      <p><strong>WARNING:</strong> This site is really only optimized on computer, so it won't be very pretty on the phone we can tell you are using.</p>
-      <button id="disclaimerButton">ok brah</button>
-    </div>
-  </div>
-
+  
   <img src="backtruck.jpeg" alt="Hero" class="hero-image" id="heroImage" />
 
   <div class="hero-overlay">
@@ -286,7 +279,7 @@
       Runke is, simply put, a project by and for people who love music.<br><br>
       We in Runke all grew up loving genres like Punk Rock, 1st-2nd wave Emo, Indie, and Shoegaze.<br><br>
       The group roles are as follows: Dane on guitar, Nick on drums, and Lucas on bass.<br><br>
-      We love music, and we hope you'll join us in our journey :)<br>
+      We love music, and we hope you'll join us in our journey :)  <br>
     </p>
 
     <div class="gallery">
@@ -315,7 +308,20 @@
     const disclaimerModal = document.getElementById('disclaimerModal');
     const disclaimerButton = document.getElementById('disclaimerButton');
 
+    function updateHeroImage() {
+      if (window.innerWidth <= 480) {
+        heroImage.src = '2222ba.jpg';
+      } else {
+        heroImage.src = 'backtruck.jpeg';
+      }
+    }
+
+    window.addEventListener('resize', updateHeroImage);
+    window.addEventListener('load', updateHeroImage);
+
     window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 480) return;
+
       const scrollY = window.scrollY;
       const maxBlur = 6;
       const blurAmount = Math.min(scrollY / 60, maxBlur);
