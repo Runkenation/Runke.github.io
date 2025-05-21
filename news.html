@@ -61,34 +61,34 @@
       100% { left: 100%; }
     }
 
-    /* Make everything 70% bigger on screens under 480px */
+ 
     @media (max-width: 480px) {
       body {
-        padding-top: 84px; /* 60px * 1.4 */
+        padding-top: 84px; 
       }
 
       h1 {
-        font-size: 81.6px; /* 48px * 1.7 */
+        font-size: 100px; 
       }
 
       p {
-        font-size: 34px; /* 20px * 1.7 */
+        font-size: 40px; 
         max-width: 680px;
       }
 
       #randomGif {
-        max-width: 850px; /* 500px * 1.7 */
+        max-width: 1200px; /
       }
 
       #mjfrog {
-        width: 255px; /* 150px * 1.7 */
+        width: 320px; 
       }
     }
   </style>
 </head>
 <body>
   <h1>Runke News</h1>
-  <p>Oops! we haven't done anything yet...</p> <br>
+  <p>Oops! we haven't done anything yet...</p>
   <p>Enjoy these advertisements while you wait!</p> <br> <br>
   <img id="randomGif" src="" alt="Random Banner" />
   <img id="mjfrog" src="mjfrog.gif" alt="Gliding Frog" />
@@ -127,10 +127,10 @@
 
       clearInterval(normalInterval);
 
-      // Start flashing chaos
+  
       const flashInterval = setInterval(setRandomGif, 100);
 
-      // Make frog visible and glide
+      
       frog.style.display = "block";
       frog.style.animation = "glide 18s linear forwards";
 
@@ -138,7 +138,7 @@
         clearInterval(flashInterval);
         normalInterval = setInterval(setRandomGif, 10000);
 
-        // Reset frog
+       
         frog.style.display = "none";
         frog.style.animation = "none";
       }, 18000);
