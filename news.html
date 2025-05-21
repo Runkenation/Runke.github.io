@@ -21,6 +21,7 @@
       justify-content: flex-start;
       padding-top: 60px;
       text-align: center;
+      position: relative;
     }
 
     h1 {
@@ -42,13 +43,30 @@
       height: auto;
       cursor: pointer;
     }
+
+    #mjfrog {
+      position: fixed;
+      bottom: 10px;
+      left: -200px;
+      width: 150px;
+      height: auto;
+      display: none;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    @keyframes glide {
+      0% { left: -200px; }
+      100% { left: 100%; }
+    }
   </style>
 </head>
 <body>
   <h1>Runke News</h1>
   <p>Oops! we haven't done anything yet...</p>
   <img id="randomGif" src="" alt="Random Banner" />
-  <audio id="audio" src="Hellomybaby.mp3" preload="auto"></audio>
+  <img id="mjfrog" src="mjfrog.gif" alt="Gliding Frog" />
+  <audio id="audio" src="hellomybaby.mp3" preload="auto"></audio>
 
   <script>
     const gifs = [
@@ -63,6 +81,7 @@
     ];
 
     const img = document.getElementById("randomGif");
+    const frog = document.getElementById("mjfrog");
     const audio = document.getElementById("audio");
 
     function setRandomGif() {
@@ -70,26 +89,32 @@
       img.src = gifs[randomIndex];
     }
 
-    // Load one GIF when the page loads
+    // Initial random gif
     setRandomGif();
 
-    // Rotate every 10 seconds normally
+    // Slow chill loop
     let normalInterval = setInterval(setRandomGif, 10000);
 
     img.addEventListener("click", () => {
-      // Play audio on click
       audio.currentTime = 0;
       audio.play();
 
-      // Stop normal gif switching
       clearInterval(normalInterval);
 
-      // Flash random GIF every 100ms for 18s
+      // Start flashing chaos
       const flashInterval = setInterval(setRandomGif, 100);
+
+      // Make frog visible and glide
+      frog.style.display = "block";
+      frog.style.animation = "glide 18s linear forwards";
 
       setTimeout(() => {
         clearInterval(flashInterval);
-        normalInterval = setInterval(setRandomGif, 10000); // back to normal
+        normalInterval = setInterval(setRandomGif, 10000);
+
+        // Reset frog
+        frog.style.display = "none";
+        frog.style.animation = "none";
       }, 18000);
     });
   </script>
