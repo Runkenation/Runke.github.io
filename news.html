@@ -61,10 +61,27 @@
       100% { left: 100%; }
     }
 
+    /* Make everything 70% bigger on screens under 480px */
     @media (max-width: 480px) {
       body {
-        transform: scale(1.4);
-        transform-origin: top left;
+        padding-top: 84px; /* 60px * 1.4 */
+      }
+
+      h1 {
+        font-size: 81.6px; /* 48px * 1.7 */
+      }
+
+      p {
+        font-size: 34px; /* 20px * 1.7 */
+        max-width: 680px;
+      }
+
+      #randomGif {
+        max-width: 850px; /* 500px * 1.7 */
+      }
+
+      #mjfrog {
+        width: 255px; /* 150px * 1.7 */
       }
     }
   </style>
