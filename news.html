@@ -48,7 +48,7 @@
   <h1>Runke News</h1>
   <p>Oops! we haven't done anything yet...</p>
   <img id="randomGif" src="" alt="Random Banner" />
-  <audio id="audio" src="hellomybaby.mp3"></audio>
+  <audio id="audio" src="hellomybaby.mp3" preload="auto"></audio>
 
   <script>
     const gifs = [
@@ -70,25 +70,26 @@
       img.src = gifs[randomIndex];
     }
 
-    // Show one on load
+    // Load one GIF when the page loads
     setRandomGif();
 
-    // Normal loop every 10s
+    // Rotate every 10 seconds normally
     let normalInterval = setInterval(setRandomGif, 10000);
 
-    // On click chaos
     img.addEventListener("click", () => {
+      // Play audio on click
       audio.currentTime = 0;
       audio.play();
 
-      clearInterval(normalInterval); // stop normal rotation
+      // Stop normal gif switching
+      clearInterval(normalInterval);
 
-      const flashInterval = setInterval(setRandomGif, 100); // flash fast
+      // Flash random GIF every 100ms for 18s
+      const flashInterval = setInterval(setRandomGif, 100);
 
-      // Stop flashing after 18 seconds
       setTimeout(() => {
         clearInterval(flashInterval);
-        normalInterval = setInterval(setRandomGif, 10000); // resume chill
+        normalInterval = setInterval(setRandomGif, 10000); // back to normal
       }, 18000);
     });
   </script>
