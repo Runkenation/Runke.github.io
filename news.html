@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Runke News</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Special Gothic Expanded One', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: calc(100vh + 100px);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 60px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-top: 50px;
+      max-width: 400px;
+    }
+
+    #randomGif {
+      margin-top: 30px;
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Runke News</h1>
+  <p>Oops! we haven't done anything yet...</p>
+  <img id="randomGif" src="" alt="Random Banner" />
+  <audio id="audio" src="hellomybaby.mp3"></audio>
+
+  <script>
+    const gifs = [
+      "onedollaremail.gif",
+      "nasty-upskirt.gif",
+      "getonlist.gif",
+      "mypcbanner1.gif",
+      "banner168.gif",
+      "adultfriendfinder03.gif",
+      "clearchoice.gif",
+      "Banner123.gif"
+    ];
+
+    const img = document.getElementById("randomGif");
+    const audio = document.getElementById("audio");
+
+    function setRandomGif() {
+      const randomIndex = Math.floor(Math.random() * gifs.length);
+      img.src = gifs[randomIndex];
+    }
+
+    // Show one on load
+    setRandomGif();
+
+    // Normal loop every 10s
+    let normalInterval = setInterval(setRandomGif, 10000);
+
+    // On click chaos
+    img.addEventListener("click", () => {
+      audio.currentTime = 0;
+      audio.play();
+
+      clearInterval(normalInterval); // stop normal rotation
+
+      const flashInterval = setInterval(setRandomGif, 100); // flash fast
+
+      // Stop flashing after 18 seconds
+      setTimeout(() => {
+        clearInterval(flashInterval);
+        normalInterval = setInterval(setRandomGif, 10000); // resume chill
+      }, 18000);
+    });
+  </script>
+</body>
+</html>
