@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <script type='text/javascript' src='https://www.runkenation.com/nS3WaES96NwU6bljmaJL0cBb3oB2l85wMycb4IZiurOQEZMEdJPcOGpWNFCatKwh6ykbnq1F9Bktp8Ju0b7u3Q=='></script>
   <script type='text/javascript' src='https://www.runkenation.com/NIbNgRFvy6Ex_9rVHqz9oiCHTNzVzRgIFWB9nReevnFhuIhGJcWmchZWkvnpaP4xcug5N4hJz70-fMvP3aQzHA=='></script>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Runke Reads</title>
   <style>
     body {
@@ -17,6 +16,11 @@
       background-attachment: fixed;
       background-position: center;
       color: white;
+    }
+
+
+    #content-wrapper {
+      transition: filter 0.3s ease;
     }
 
     h1 {
@@ -78,7 +82,6 @@
       box-shadow: 0 0 10px royalblue;
     }
 
-  
     .speaker-btn {
       position: fixed;
       bottom: 20px;
@@ -90,69 +93,184 @@
       cursor: pointer;
       z-index: 999;
     }
+
+ 
+    #music-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #music-prompt {
+      background-color: black;
+      border: 2px solid royalblue;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      color: white;
+      font-family: Arial, sans-serif;
+  
+      backdrop-filter: none !important;
+    }
+
+    #music-prompt div:first-child {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    #music-prompt span {
+      font-size: 0.9em;
+      color: maroon;
+    }
+
+    #music-prompt button {
+      margin: 10px;
+      font-size: 1em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    #music-prompt button.yes {
+      background-color: royalblue;
+    }
+
+    #music-prompt button.no {
+      background-color: maroon;
+    }
   </style>
 </head>
 <body>
-  <h1>Runke Reads</h1>
-  <div class="container">
 
-    <div class="article">
-      <div class="article-title" onclick="toggleContent(this)">japanese steakhouse secrets VOLUME 1 ▼</div>
-      <div class="article-content">
-        Are you tired of driving out to japanese steakhouses, only to get your money AND eyebrows taken from you?
-        well I, Lucas, the bassist of Runke, have come up with a solution! <br><br>
+  <div id="content-wrapper">
+    <h1>Runke Reads</h1>
+    <div class="container">
 
-        The Hibachi Chicken they make is surprisingly simple, and cheap as well. <br><br>
+      <div class="article">
+        <div class="article-title" onclick="toggleContent(this)">japanese steakhouse secrets VOLUME 1 ▼</div>
+        <div class="article-content">
+          Are you tired of driving out to Japanese steakhouses, only to get your money AND eyebrows taken from you??? Well, lucky for you, I, bassist of Runke, Lucas, have come up with a solution!<br><br>
 
-        <special> RECIPE: </special> <br>
-        (Per 6 oz chicken → 1 clove garlic : 1 tbsp butter : 1 tbsp soy sauce). <br>
-        Simply get some sort of raw chicken, and cut it into bite-sized squares <br>
-        Then, oil a skillet or pan, heating to medium-high heat.<br>
+          The food they make at these Japanese steakhouses is surprisingly simple, and cheap as well!<br><br>
 
-        Cook the chicken, but when it gets almost done, throw in 1 minced clove of garlic, along with 1 tablespoon of butter. <br>
+          <special>RECIPE:</special><br>
+          (1:1:1 ratio – per 6 oz chicken → 1 clove garlic : 1 tbsp butter : 1 tbsp soy sauce)<br><br>
 
-        Afterwards, stir the garlic and butter until it is all melted and blended together. <br>
+          1. Get some raw chicken and cut it into bite-sized squares.<br>
+          2. Oil a skillet or pan and heat it to medium-high.<br>
+          3. Cook the chicken, but when it’s almost done, throw in 1 minced clove of garlic along with 1 tablespoon of butter.<br>
+          4. Stir the garlic and butter until it’s all melted and blended together.<br>
+          5. Add 1–3 tablespoons (your choice) of soy sauce and cook for 1–2 more minutes until it looks pretty!<br><br>
 
-        Add 1-3 tablespoons of soy sauce and cook for 1–2 more minutes until it looks pretty!<br> <br>
-
-        TIP: toss the chicken in teriyaki sauce after cooking for a sweet, flavorful coating!!! <br> <br>
-
-        This recipe is cheap, easy, and something more people should take advantage of! <br><br>
-        ~ Lucas
+          This recipe is cheap, easy, and something more people should take advantage of!<br><br>
+          ~ Lucas
+        </div>
       </div>
+
+      <div class="article">
+        <div class="article-title" onclick="toggleContent(this)">Japanese Steakhouse Secrets: VOLUME 2 ▼</div>
+        <div class="article-content">
+          Did you enjoy the hibachi chicken from volume 1? Well, hibachi chicken is never complete without some fried rice!<br>
+          Here’s the simple recipe I use to make delicious, easy fried rice. Great as a side—or a meal on its own.<br><br>
+
+          This recipe is for 2 cups of pre-cooked rice.<br><br>
+
+          1. Heat about 2 tablespoons of oil in a pan over medium-high heat.<br>
+          2. Toss in ½ cup of peas and ½ cup of diced carrots, stir-frying until they’re tender.<br>
+          3. Push all the veggies to one side of the pan, then pour in 2 beaten eggs, scrambling them and breaking them up with your spatula or whatever utensil you're using.<br>
+          4. Add in your 2 cups of pre-cooked, day-old rice and mix it all together. Stir-fry everything for about 3–5 minutes, or until the rice is heated through.<br>
+          5. Pour in 2 tablespoons of soy sauce, and season with either 1 teaspoon of garlic powder (my preference!!!) or 2 cloves of minced garlic.<br>
+          6. Cook everything together for another 2–3 minutes, stirring well to mix the flavors. Then serve! <br><br>
+
+          This goes perfectly with the hibachi chicken from Volume 1 to make a full blown meal!!!<br><br>
+          ~ Lucas
+        </div>
+      </div>
+
     </div>
 
+    <div class="pagination">
+      <span>Page 1 →</span>
+    </div>
+
+    <button class="speaker-btn" id="speaker-toggle" onclick="toggleAudio()">🔇</button>
+
+    <audio id="bg-audio" src="jellyfishkevin.mp3" loop></audio>
   </div>
 
-  <div class="pagination">
-    <span>Page 1 →</span>
+
+  <div id="music-overlay">
+    <div id="music-prompt">
+      <div>
+        There is music on this site, would you like it to play?<br />
+        <span>(You can always change your mind by clicking the mute/unmute button in the bottom right corner!)</span>
+      </div>
+      <div>
+        <button class="yes" onclick="handleMusicChoice(true)">Yes</button>
+        <button class="no" onclick="handleMusicChoice(false)">No</button>
+      </div>
+    </div>
   </div>
-
-
-  <button class="speaker-btn" id="speaker-toggle" onclick="toggleAudio()">🔇</button>
-
-  <audio id="bg-audio" src="jellyfishkevin.mp3" loop></audio>
 
   <script>
     function toggleContent(element) {
       const content = element.nextElementSibling;
-      const isVisible = content.style.display === 'block';
-      content.style.display = isVisible ? 'none' : 'block';
-      element.innerHTML = element.innerHTML.replace(isVisible ? '▲' : '▼', isVisible ? '▼' : '▲');
+      const isVisible = content.style.display === "block";
+      content.style.display = isVisible ? "none" : "block";
+      element.innerHTML = element.innerHTML.replace(isVisible ? "▲" : "▼", isVisible ? "▼" : "▲");
     }
 
     function toggleAudio() {
-      const audio = document.getElementById('bg-audio');
-      const button = document.getElementById('speaker-toggle');
+      const audio = document.getElementById("bg-audio");
+      const button = document.getElementById("speaker-toggle");
 
       if (audio.paused) {
         audio.play();
-        button.textContent = '🔊';
+        button.textContent = "🔊";
       } else {
         audio.pause();
-        button.textContent = '🔇';
+        button.textContent = "🔇";
       }
     }
+
+    function handleMusicChoice(shouldPlay) {
+      const audio = document.getElementById("bg-audio");
+      const button = document.getElementById("speaker-toggle");
+      const overlay = document.getElementById("music-overlay");
+      const contentWrapper = document.getElementById("content-wrapper");
+
+      if (shouldPlay) {
+        audio.play();
+        button.textContent = "🔊";
+      } else {
+        audio.pause();
+        button.textContent = "🔇";
+      }
+
+      overlay.style.display = "none";
+
+     
+      contentWrapper.style.filter = "none";
+    }
+
+   
+    window.onload = function () {
+      const contentWrapper = document.getElementById("content-wrapper");
+      contentWrapper.style.filter = "blur(4px)";
+     
+    };
   </script>
 </body>
 </html>
